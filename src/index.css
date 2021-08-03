@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+  --dark-background: #121212;
+  --main-font-color: #ffffff;
+  --font-family: 'Open Sans', 'Roboto', 'Segoe UI', 'Oxygen', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--dark-background);
+  color: var(--main-font-color);
+}
