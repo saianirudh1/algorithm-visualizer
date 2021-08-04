@@ -11,9 +11,10 @@ Try out the app here :
 
 ## Built Using
 
-- React.js
 - HTML
-- SCSS
+- CSS
+- React.js
+- Redux
 
 ## Available Scripts
 
