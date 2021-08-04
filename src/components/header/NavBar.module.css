@@ -21,7 +21,7 @@ button:hover {
   align-items: flex-start;
   position: absolute;
   margin-top: 0.5em;
-  left: 20%;
+  left: 23%;
 }
 
 .btn--primary {
@@ -38,4 +38,20 @@ button:hover {
 .btn--selected {
   background-color: var(--hover-color);
   opacity: 100%;
+}
+
+@media screen and (max-width: 1400px) {
+  button {
+    font-size: 1.5em;
+  }
+
+  .navlist {
+    margin-top: 0.5em;
+    left: 25%;
+    top: 10%;
+  }
+
+  .btn--primary {
+    margin-left: 3em;
+  }
 }

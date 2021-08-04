@@ -16,3 +16,15 @@ h2 {
   width: 5em;
   margin: 0 2em;
 }
+
+@media screen and (max-width: 1400px) {
+  .logo {
+    height: 4em;
+    width: 4em;
+  }
+
+  h2 {
+    opacity: 86%;
+    font-size: 1.5em;
+  }
+}
