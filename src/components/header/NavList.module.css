@@ -43,3 +43,25 @@
 .dropdown--item.last--item {
   border-bottom: none;
 }
+
+@media screen and (max-width: 1400px) {
+  .dropdown {
+    min-width: 240px;
+  }
+
+  .dropdown--btn {
+    position: absolute;
+    top: 0.3em;
+    font-size: 1.4em;
+  }
+
+  .dropdown--item {
+    font-size: 1.4em;
+  }
+
+  .arrow {
+    top: 0.9em;
+    left: 90%;
+    font-size: 1.2em;
+  }
+}
