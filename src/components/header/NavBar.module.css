@@ -4,14 +4,16 @@ button {
   font-size: 2em;
   padding: 1rem;
   border: none;
-  width: 10em;
+  opacity: 86%;
+  min-width: 10em;
   color: var(--main-font-color);
   cursor: pointer;
 }
 
-button:focus {
+button:focus,
+button:hover {
   outline: none;
-  background: var(--hover-color);
+  opacity: 100%;
 }
 
 .navlist {
@@ -23,60 +25,17 @@ button:focus {
 }
 
 .btn--primary {
-  background: #d3d4d8;
+  background-color: #d3d4d8;
   color: var(--dark-background);
   margin-left: 5em;
 }
 
 .btn--primary:focus,
 .btn--primary:hover {
-  background: #e4e6eb;
+  background-color: #e4e6eb;
 }
 
 .btn--selected {
-  background: var(--hover-color);
-}
-
-.dropdown {
-  width: 33%;
-  list-style: none;
-  border-radius: 1rem;
-  position: relative;
-  display: flex;
-  margin-left: 1em;
-  align-items: flex-start;
-  flex-direction: column;
-  height: auto;
-}
-
-.dropdown:hover {
-  background: var(--hover-color);
-  cursor: pointer;
-}
-
-.dropdown--btn {
-  margin: 0.3em 0.5em;
-  font-size: 2em;
-  cursor: pointer;
-}
-
-.arrow {
-  font-size: 0.7em;
-  margin-left: 1em;
-}
-
-.dropdown--item {
-  font-size: 2em;
-  padding: 0.5em;
-  border-bottom-style: solid;
-  border-width: 1px;
-  width: 100%;
-}
-
-.dropdown--item:hover {
-  background-color: var(--secondary-background);
-}
-
-.dropdown--item.last--item {
-  border-bottom: none;
+  background-color: var(--hover-color);
+  opacity: 100%;
 }
