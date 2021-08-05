@@ -17,23 +17,14 @@
   align-items: flex-end;
   position: absolute;
   transition: all 0.3s ease-in;
-  /* background-color: red; */
   left: 5%;
   bottom: 0;
 }
 
 .bar {
   width: 1em;
-  height: 80px;
-  border: 1px solid #111;
+  height: 0px;
+  border: 1px solid var(--dark-background);
   transition: all 0.3s ease-in;
-  background-color: #fff;
-}
-
-.bar2 {
-  width: 1em;
-  height: 80px;
-  border: 1px solid #111;
-  transition: all 0.3s ease-in;
-  background-color: #fff;
+  background-color: var(--secondary-color);
 }
