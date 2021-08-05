@@ -1,0 +1,39 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.generate {
+  padding: 0.5em 1em 0.5em 1em;
+  margin-top: 1em;
+  background-color: #d3d4d8;
+  color: var(--dark-background);
+}
+
+.list {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  transition: all 0.3s ease-in;
+  /* background-color: red; */
+  left: 5%;
+  bottom: 0;
+}
+
+.bar {
+  width: 1em;
+  height: 80px;
+  border: 1px solid #111;
+  transition: all 0.3s ease-in;
+  background-color: #fff;
+}
+
+.bar2 {
+  width: 1em;
+  height: 80px;
+  border: 1px solid #111;
+  transition: all 0.3s ease-in;
+  background-color: #fff;
+}

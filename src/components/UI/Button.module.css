@@ -1,0 +1,17 @@
+button {
+  border-radius: 1rem;
+  background: none;
+  font-size: 2em;
+  padding: 1rem;
+  border: none;
+  opacity: 86%;
+  min-width: 10em;
+  color: var(--main-font-color);
+  cursor: pointer;
+}
+
+button:focus,
+button:hover {
+  outline: none;
+  opacity: 100%;
+}

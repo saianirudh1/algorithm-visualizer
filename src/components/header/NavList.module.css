@@ -12,6 +12,7 @@
 
 .dropdown:hover {
   background-color: var(--hover-color);
+  z-index: 1;
   cursor: pointer;
 }
 

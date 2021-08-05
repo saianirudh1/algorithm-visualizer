@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import classes from './NavBar.module.css';
 import NavList from './NavList';
+import Button from '../UI/Button';
+import classes from './NavBar.module.css';
 
 import { typeActions } from '../../store/type';
 import { algorithmActions } from '../../store/algorithm';
@@ -23,21 +24,21 @@ function NavBar() {
   return (
     <nav>
       <ul className={classes.navlist}>
-        <button
+        <Button
           className={type === 'sort' ? classes['btn--selected'] : ''}
           onClick={sortButtonHandler}
         >
           Sorting Algorithms
-        </button>
+        </Button>
 
-        <button
+        <Button
           className={type === 'path' ? classes['btn--selected'] : ''}
           onClick={pathButtonHandler}
         >
           Path Algorithms
-        </button>
+        </Button>
         <NavList type={type} />
-        <button className={classes['btn--primary']}>Visualize</button>
+        <Button className={classes['btn--primary']}>Visualize</Button>
       </ul>
     </nav>
   );
