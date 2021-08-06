@@ -1,6 +1,9 @@
-import { renderBubbleSortAnimations } from '../algorithms/sortAlgorithms/BubbleSort';
+import { renderBubbleSort } from '../algorithms/sortAlgorithms/bubbleSort';
+import { renderSelectionSort } from '../algorithms/sortAlgorithms/selectionSort';
+
 export const sortingAlgorithms = [
-  { id: 's1', name: 'Bubble Sort', func: renderBubbleSortAnimations },
+  { id: 's1', name: 'Bubble Sort', func: renderBubbleSort },
+  { id: 's2', name: 'Selection Sort', func: renderSelectionSort },
 ];
 export const pathAlgorithms = [
   { id: 'p1', name: 'Depth First Search', func: '' },

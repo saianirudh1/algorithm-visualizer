@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '../UI/Button';
 import classes from './BarList.module.css';
 
-import getArray from '../../utils/generateArray';
+import { getArray } from '../../utils/arrayUtils';
 
 import { arrayActions } from '../../store/array';
 
