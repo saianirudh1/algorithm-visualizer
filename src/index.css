@@ -7,6 +7,12 @@
   --hover-color: #3a3b3c;
   --secondary-color: #b0b3b8;
   --font-family: 'Open Sans', 'Roboto', 'Segoe UI', 'Oxygen', sans-serif;
+
+  --main-bar: #00838f;
+  --compare-bar: #d84315;
+  --swap-bar: #d32f2f;
+  --done-bar: #2e7d32;
+  --min-bar: #ffff8d;
 }
 
 * {
