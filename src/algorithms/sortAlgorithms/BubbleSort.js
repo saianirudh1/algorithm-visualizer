@@ -1,5 +1,5 @@
 import classes from '../../components/sort/BarList.module.css';
-import { getHeight, swap } from '../../utils/arrayUtils';
+import { getHeight, swap, addDelay } from '../../utils/arrayUtils';
 
 export const renderBubbleSort = async function () {
   let delay = 250;
@@ -10,11 +10,7 @@ export const renderBubbleSort = async function () {
       arr[j].style.backgroundColor = 'var(--main-bar)';
       arr[j + 1].style.backgroundColor = 'var(--compare-bar)';
 
-      await new Promise((resolve) =>
-        setTimeout(() => {
-          resolve();
-        }, delay)
-      );
+      await addDelay(delay);
 
       let value1 = getHeight(arr[j].style.height);
       let value2 = getHeight(arr[j + 1].style.height);
@@ -34,11 +30,7 @@ export const renderBubbleSort = async function () {
 
   arr = document.querySelectorAll(`.${classes.bar}`);
   for (let i = arr.length - 1; i >= 0; i--) {
-    await new Promise((resolve) =>
-      setTimeout(() => {
-        resolve();
-      }, 10)
-    );
+    await addDelay(10);
     arr[i].style.backgroundColor = 'var(--secondary-color)';
   }
 };

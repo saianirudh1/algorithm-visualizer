@@ -41,3 +41,11 @@ export const swap = function (bar1, bar2) {
 export const getHeight = function (height) {
   return Number(height.slice(0, -2));
 };
+
+export const addDelay = function (delay) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, delay);
+  });
+};
