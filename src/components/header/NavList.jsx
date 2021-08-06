@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import classes from './NavList.module.css';
 import { algorithmActions } from '../../store/algorithm';
 
-import classes from './NavList.module.css';
-
-const sortingAlgorithms = [{ id: 's1', name: 'Bubble Sort' }];
-
-const pathAlgorithms = [{ id: 'p1', name: 'Depth First Search' }];
+import {
+  sortingAlgorithms,
+  pathAlgorithms,
+} from '../../constants/appConstants';
 
 function NavList(props) {
   const type = props.type;
@@ -32,6 +32,8 @@ function NavList(props) {
         name: e.target.textContent,
       })
     );
+
+    props.enableVisualize();
   };
 
   const algorithms = itemList.map((item, index) => {
