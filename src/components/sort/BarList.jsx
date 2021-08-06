@@ -29,7 +29,9 @@ function BarList() {
       <Button className={classes.generate} onClick={generateArrayHandler}>
         Generate New Array
       </Button>
-      <div className={classes.list}>{bars}</div>
+      <div className={classes.list} id="#main">
+        {bars}
+      </div>
     </div>
   );
 }

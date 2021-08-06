@@ -6,10 +6,10 @@ const generateRandomValues = function (maxHeight) {
 
 const getArray = function () {
   const windowSize = window.innerWidth;
-  const arrSize = Math.round(windowSize * 0.09);
+  const arrSize = Math.round(windowSize * 0.07);
   const maxHeight = Math.round(windowSize / 2.4);
 
-  const arr = new Array(arrSize);
+  const arr = [];
 
   let size = arrSize;
 
