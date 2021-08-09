@@ -8,6 +8,10 @@ Try out the app here :
 
 - ### Sorting Algorithms:
 
+  -> Merge Sort
+
+  -> Quick Sort
+
   -> Insertion Sort
 
   -> Selection Sort
