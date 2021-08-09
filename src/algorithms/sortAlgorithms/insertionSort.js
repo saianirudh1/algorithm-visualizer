@@ -37,7 +37,7 @@ export const renderInsertionSort = async function () {
     arr[index].style.backgroundColor = 'var(--done-bar)';
   }
 
-  await addDelay(250);
+  await addDelay(750);
 
   for (let index = 0; index < arr.length; index++) {
     await addDelay(10);

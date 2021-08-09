@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import NavList from './NavList';
@@ -8,12 +7,15 @@ import classes from './NavBar.module.css';
 import { typeActions } from '../../store/type';
 import { algorithmActions } from '../../store/algorithm';
 import { algoMap } from '../../constants/appConstants';
+import { inputActions } from '../../store/input';
+import { arrayActions } from '../../store/array';
 
 function NavBar() {
   const dispatch = useDispatch();
-  const [isDisabled, setIsDisabled] = useState(true);
+  const isDisabled = useSelector((state) => state.input.visualize);
   const type = useSelector((state) => state.type.algoType);
   const algorithmState = useSelector((state) => state.algorithm);
+  const arrayState = useSelector((state) => state.array.arr);
 
   const sortButtonHandler = function () {
     dispatch(typeActions.setType('sort'));
@@ -26,13 +28,25 @@ function NavBar() {
   };
 
   const enableVisualize = function () {
-    setIsDisabled(false);
+    dispatch(inputActions.setVisualize(false));
   };
 
   const visualizationHandler = function () {
     const algoFunction = algoMap.get(algorithmState.id);
+    dispatch(inputActions.setVisualize(true));
+    dispatch(inputActions.setGenerate(true));
+
     if (type === 'sort') {
-      algoFunction();
+      const arr = arrayState.slice();
+      const sorted = algoFunction(arr);
+      setTimeout(() => {
+        dispatch(inputActions.setVisualize(false));
+        dispatch(inputActions.setGenerate(false));
+
+        if (typeof sorted !== 'object') {
+          dispatch(arrayActions.setArray(sorted));
+        }
+      }, algorithmState.time);
     } else {
     }
   };

@@ -30,3 +30,12 @@
   transition: all 0.3s ease-in;
   background-color: var(--secondary-color);
 }
+
+.bar2 {
+  width: 1em;
+  height: 0px;
+  border: 1px solid var(--dark-background);
+  border-top-left-radius: 2.5px;
+  border-top-right-radius: 2.5px;
+  background-color: var(--secondary-color);
+}

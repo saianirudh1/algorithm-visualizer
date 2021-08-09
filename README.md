@@ -7,8 +7,11 @@ Try out the app here :
 ## Meet the algorithms!
 
 - ### Sorting Algorithms:
+
   -> Insertion Sort
+
   -> Selection Sort
+
   -> Bubble Sort
 
 ## Built Using
