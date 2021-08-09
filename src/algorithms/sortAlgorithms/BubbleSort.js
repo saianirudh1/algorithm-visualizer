@@ -2,7 +2,7 @@ import classes from '../../components/sort/BarList.module.css';
 import { getHeight, swap, addDelay } from '../../utils/arrayUtils';
 
 export const renderBubbleSort = async function () {
-  let delay = 250;
+  let delay = 170;
   let arr = document.querySelectorAll(`.${classes.bar}`);
 
   for (let i = 0; i < arr.length; i++) {

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { id: '0', name: 'Select An Algorithm' };
+const initialState = { id: '0', name: 'Select An Algorithm', time: 0 };
 const algorithmSlice = createSlice({
   name: 'algorithm',
   initialState,
@@ -8,11 +8,13 @@ const algorithmSlice = createSlice({
     setAlgorithm(state, action) {
       state.name = action.payload.name;
       state.id = action.payload.id;
+      state.time = action.payload.time;
     },
 
     resetAlgorithm(state) {
       state.name = initialState.name;
       state.id = initialState.id;
+      state.time = initialState.time;
     },
   },
 });

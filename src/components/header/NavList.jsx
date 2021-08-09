@@ -30,6 +30,7 @@ function NavList(props) {
       algorithmActions.setAlgorithm({
         id: e.target.id,
         name: e.target.textContent,
+        time: e.target.dataset.time,
       })
     );
 
@@ -46,6 +47,7 @@ function NavList(props) {
       <li
         key={item.id}
         id={item.id}
+        data-time={item.time}
         className={styles}
         onClick={algorithmSelector}
       >

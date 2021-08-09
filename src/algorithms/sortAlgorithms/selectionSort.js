@@ -3,7 +3,7 @@ import { swap, getHeight, addDelay } from '../../utils/arrayUtils';
 
 export const renderSelectionSort = async function () {
   let arr = document.querySelectorAll(`.${classes.bar}`);
-  let delay = 250;
+  let delay = 100;
 
   let currIndex = 0;
   arr[currIndex].style.backgroundColor = 'var(--main-bar)';
@@ -32,7 +32,7 @@ export const renderSelectionSort = async function () {
     await swap(arr[currIndex], arr[minIndex]);
     arr = document.querySelectorAll(`.${classes.bar}`);
     arr[currIndex].style.backgroundColor = 'var(--done-bar)';
-    delay = 10;
+    delay = 0;
     currIndex++;
   }
 

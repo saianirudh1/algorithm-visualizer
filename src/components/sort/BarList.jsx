@@ -11,6 +11,7 @@ import { arrayActions } from '../../store/array';
 function BarList() {
   const dispatch = useDispatch();
   const arr = useSelector((state) => state.array.arr);
+  const isDisabled = useSelector((state) => state.input.generate);
 
   useEffect(() => {
     dispatch(arrayActions.setArray(getArray()));
@@ -26,7 +27,11 @@ function BarList() {
 
   return (
     <div className={classes.main}>
-      <Button className={classes.generate} onClick={generateArrayHandler}>
+      <Button
+        className={classes.generate}
+        onClick={generateArrayHandler}
+        isDisabled={isDisabled}
+      >
         Generate New Array
       </Button>
       <div className={classes.list} id="#main">
