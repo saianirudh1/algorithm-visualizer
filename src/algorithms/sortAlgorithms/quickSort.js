@@ -3,7 +3,7 @@ import { setBars, getBars, delay } from '../../utils/arrayUtils';
 
 const renderAnimations = function (animations) {
   let arr = getBars(classes);
-  let promises = [];
+  const promises = [];
 
   for (let index = 0; index < animations.length; index++) {
     const animation = animations[index];
@@ -48,7 +48,7 @@ const partitionArray = function (arr, start, end, animations) {
       animations.push({
         color: true,
         index: pIndex,
-        change: 'var(--swap-bar)',
+        change: 'var(--compare-bar)',
       });
 
       animations.push({ color: false, index, height: arr[pIndex] });

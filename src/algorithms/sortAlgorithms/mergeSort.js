@@ -61,7 +61,7 @@ const getMergeSortAnimations = function (arr) {
   return animations;
 };
 
-const renderMergeSortAnimations = function (animations) {
+const renderAnimations = function (animations) {
   const bars = getBars(classes);
   const promises = [];
   for (let i = 0; i < animations.length; i++) {
@@ -101,7 +101,7 @@ const renderMergeSortAnimations = function (animations) {
 
 export const renderMergeSort = async function (arr) {
   const animations = getMergeSortAnimations(arr);
-  await renderMergeSortAnimations(animations);
+  await renderAnimations(animations);
   setBars(classes);
   return arr;
 };

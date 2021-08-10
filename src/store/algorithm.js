@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { id: '0', name: 'Select An Algorithm', time: 0 };
+const initialState = { id: '0', name: 'Select An Algorithm' };
 const algorithmSlice = createSlice({
   name: 'algorithm',
   initialState,

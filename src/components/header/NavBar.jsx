@@ -41,7 +41,9 @@ function NavBar() {
       const sorted = await algoFunction(arr);
       dispatch(inputActions.setVisualize(false));
       dispatch(inputActions.setGenerate(false));
-      dispatch(arrayActions.setArray(sorted));
+      if (algorithmState.id === 's1' || algorithmState.id === 's2') {
+        dispatch(arrayActions.setArray(sorted));
+      }
     } else {
     }
   };
