@@ -5,8 +5,8 @@ import { renderMergeSort } from '../algorithms/sortAlgorithms/mergeSort';
 import { renderQuickSort } from '../algorithms/sortAlgorithms/quickSort';
 
 export const sortingAlgorithms = [
-  { id: 's1', name: 'Quick Sort', func: renderQuickSort, time: 37000 },
-  { id: 's2', name: 'Merge Sort', func: renderMergeSort, time: 37000 },
+  { id: 's1', name: 'Quick Sort', func: renderQuickSort, time: 270 },
+  { id: 's2', name: 'Merge Sort', func: renderMergeSort, time: 35000 },
   { id: 's3', name: 'Insertion Sort', func: renderInsertionSort, time: 55000 },
   { id: 's4', name: 'Selection Sort', func: renderSelectionSort, time: 60000 },
   { id: 's5', name: 'Bubble Sort', func: renderBubbleSort, time: 130000 },

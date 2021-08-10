@@ -43,7 +43,7 @@ function NavBar() {
         dispatch(inputActions.setVisualize(false));
         dispatch(inputActions.setGenerate(false));
 
-        if (typeof sorted !== 'object') {
+        if (Array.isArray(sorted)) {
           dispatch(arrayActions.setArray(sorted));
         }
       }, algorithmState.time);

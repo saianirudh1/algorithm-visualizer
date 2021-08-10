@@ -1,54 +1,5 @@
 import classes from '../../components/sort/BarList.module.css';
-import { addDelay } from '../../utils/arrayUtils';
-
-const getBars = function () {
-  const bars = document.querySelectorAll(`.${classes.bar}`);
-  bars.forEach((bar) => {
-    bar.classList.remove(`${classes.bar}`);
-    bar.classList.add(`${classes.bar2}`);
-  });
-
-  return bars;
-};
-
-const setBars = async function () {
-  const bars = document.querySelectorAll(`.${classes.bar2}`);
-  bars.forEach((bar) => {
-    bar.classList.remove(`${classes.bar2}`);
-    bar.classList.add(`${classes.bar}`);
-  });
-
-  let mid = Math.floor(bars.length / 2);
-  let left = mid,
-    right = mid;
-
-  while (left >= 0 || right < bars.length) {
-    await addDelay(10);
-    if (left >= 0) {
-      bars[left].style.backgroundColor = 'var(--done-bar)';
-    }
-    if (right < bars.length) {
-      bars[right].style.backgroundColor = 'var(--done-bar)';
-    }
-    left--;
-    right++;
-  }
-
-  left = mid;
-  right = mid;
-
-  while (left >= 0 || right < bars.length) {
-    await addDelay(10);
-    if (left >= 0) {
-      bars[left].style.backgroundColor = 'var(--secondary-color)';
-    }
-    if (right < bars.length) {
-      bars[right].style.backgroundColor = 'var(--secondary-color)';
-    }
-    left--;
-    right++;
-  }
-};
+import { getBars, setBars } from '../../utils/arrayUtils';
 
 const doMerge = function (
   arr,
@@ -112,7 +63,7 @@ const getMergeSortAnimations = function (arr) {
 
 export const renderMergeSort = function (arr) {
   const animations = getMergeSortAnimations(arr);
-  const bars = getBars();
+  const bars = getBars(classes);
   for (let i = 0; i < animations.length; i++) {
     const isColorChange = i % 3 !== 2;
     if (isColorChange) {
@@ -142,7 +93,7 @@ export const renderMergeSort = function (arr) {
   }
 
   setTimeout(() => {
-    setBars();
+    setBars(classes);
   }, 33250);
 
   return arr;

@@ -15,6 +15,7 @@ function NavList(props) {
 
   const [showDropDown, setShowDropDown] = useState(false);
   const algorithmName = useSelector((state) => state.algorithm.name);
+  const bars = useSelector((state) => state.array.arr);
   const dispatch = useDispatch();
 
   const showList = function () {
@@ -30,7 +31,7 @@ function NavList(props) {
       algorithmActions.setAlgorithm({
         id: e.target.id,
         name: e.target.textContent,
-        time: e.target.dataset.time,
+        time: bars.length * e.target.dataset.time,
       })
     );
 
