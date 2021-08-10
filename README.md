@@ -8,15 +8,11 @@ Try out the app here :
 
 - ### Sorting Algorithms:
 
-  -> Quick Sort
-
-  -> Merge Sort
-
-  -> Insertion Sort
-
-  -> Selection Sort
-
-  -> Bubble Sort
+  - Quick Sort
+  - Merge Sort
+  - Insertion Sort
+  - Selection Sort
+  - Bubble Sort
 
 ## Built Using
 
