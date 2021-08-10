@@ -31,7 +31,7 @@ function NavList(props) {
       algorithmActions.setAlgorithm({
         id: e.target.id,
         name: e.target.textContent,
-        time: bars.length * e.target.dataset.time,
+        time: e.target.dataset.time,
       })
     );
 
