@@ -31,22 +31,17 @@ function NavBar() {
     dispatch(inputActions.setVisualize(false));
   };
 
-  const visualizationHandler = function () {
+  const visualizationHandler = async function () {
     const algoFunction = algoMap.get(algorithmState.id);
     dispatch(inputActions.setVisualize(true));
     dispatch(inputActions.setGenerate(true));
 
     if (type === 'sort') {
       const arr = arrayState.slice();
-      const sorted = algoFunction(arr);
-      setTimeout(() => {
-        dispatch(inputActions.setVisualize(false));
-        dispatch(inputActions.setGenerate(false));
-
-        if (Array.isArray(sorted)) {
-          dispatch(arrayActions.setArray(sorted));
-        }
-      }, algorithmState.time);
+      const sorted = await algoFunction(arr);
+      dispatch(inputActions.setVisualize(false));
+      dispatch(inputActions.setGenerate(false));
+      dispatch(arrayActions.setArray(sorted));
     } else {
     }
   };

@@ -1,8 +1,15 @@
 import classes from '../../components/sort/BarList.module.css';
 import { setBars, getBars } from '../../utils/arrayUtils';
 
-const renderAnimations = async function (animations) {
+const delay = function (t) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, t);
+  });
+};
+
+const renderAnimations = function (animations) {
   let arr = getBars(classes);
+  let promises = [];
 
   for (let index = 0; index < animations.length; index++) {
     const animation = animations[index];
@@ -14,17 +21,19 @@ const renderAnimations = async function (animations) {
       setTimeout(() => {
         bar.style.backgroundColor = change;
       }, index * 8);
+
+      promises.push(delay(index * 8));
     } else {
       const { height } = animation;
       setTimeout(() => {
         bar.style.height = `${height}px`;
       }, index * 8);
+
+      promises.push(delay(index * 8));
     }
   }
 
-  setTimeout(() => {
-    setBars(classes);
-  }, 29000);
+  return Promise.all(promises);
 };
 
 const swapIndex = function (arr, i, j) {
@@ -99,11 +108,12 @@ const quickSortHelper = function (arr, start, end, animations) {
   }
 };
 
-export const renderQuickSort = function (arr) {
+export const renderQuickSort = async function (arr) {
   let animations = [];
   let tempArr = arr.slice();
   quickSortHelper(tempArr, 0, tempArr.length - 1, animations);
-  renderAnimations(animations);
+  await renderAnimations(animations);
+  setBars(classes);
 
   return tempArr;
 };

@@ -15,7 +15,6 @@ function NavList(props) {
 
   const [showDropDown, setShowDropDown] = useState(false);
   const algorithmName = useSelector((state) => state.algorithm.name);
-  const bars = useSelector((state) => state.array.arr);
   const dispatch = useDispatch();
 
   const showList = function () {
