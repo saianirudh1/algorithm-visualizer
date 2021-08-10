@@ -49,3 +49,58 @@ export const addDelay = function (delay) {
     }, delay);
   });
 };
+
+export const getBars = function (classes) {
+  const bars = document.querySelectorAll(`.${classes.bar}`);
+  bars.forEach((bar) => {
+    bar.classList.remove(`${classes.bar}`);
+    bar.classList.add(`${classes.bar2}`);
+  });
+
+  return bars;
+};
+
+export const setBars = async function (classes) {
+  const bars = document.querySelectorAll(`.${classes.bar2}`);
+  bars.forEach((bar) => {
+    bar.classList.remove(`${classes.bar2}`);
+    bar.classList.add(`${classes.bar}`);
+  });
+
+  let mid = Math.floor(bars.length / 2);
+  let left = mid,
+    right = mid;
+
+  while (left >= 0 || right < bars.length) {
+    await addDelay(10);
+    if (left >= 0) {
+      bars[left].style.backgroundColor = 'var(--done-bar)';
+    }
+    if (right < bars.length) {
+      bars[right].style.backgroundColor = 'var(--done-bar)';
+    }
+    left--;
+    right++;
+  }
+
+  left = mid;
+  right = mid;
+
+  while (left >= 0 || right < bars.length) {
+    await addDelay(10);
+    if (left >= 0) {
+      bars[left].style.backgroundColor = 'var(--secondary-color)';
+    }
+    if (right < bars.length) {
+      bars[right].style.backgroundColor = 'var(--secondary-color)';
+    }
+    left--;
+    right++;
+  }
+};
+
+export const delay = function (t) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, t);
+  });
+};

@@ -1,7 +1,9 @@
 import classes from '../../components/sort/BarList.module.css';
 import { swap, getHeight, addDelay } from '../../utils/arrayUtils';
 
-export const renderSelectionSort = async function () {
+const renderAnimations = async function () {
+  const promises = [];
+
   let arr = document.querySelectorAll(`.${classes.bar}`);
   let delay = 100;
 
@@ -13,7 +15,7 @@ export const renderSelectionSort = async function () {
     for (let index = currIndex + 1; index < arr.length; index++) {
       arr[index].style.backgroundColor = 'var(--compare-bar)';
 
-      await addDelay(delay);
+      promises.push(await addDelay(delay));
 
       let currVal = getHeight(arr[index].style.height);
       if (min > currVal) {
@@ -29,16 +31,22 @@ export const renderSelectionSort = async function () {
       }
     }
 
-    await swap(arr[currIndex], arr[minIndex]);
+    promises.push(await swap(arr[currIndex], arr[minIndex]));
     arr = document.querySelectorAll(`.${classes.bar}`);
     arr[currIndex].style.backgroundColor = 'var(--done-bar)';
     delay = 0;
     currIndex++;
   }
 
-  arr = document.querySelectorAll(`.${classes.bar}`);
+  return Promise.all(promises);
+};
+
+export const renderSelectionSort = async function () {
+  await renderAnimations();
+
+  let arr = document.querySelectorAll(`.${classes.bar}`);
   for (let i = 0; i < arr.length; i++) {
-    await addDelay(delay);
+    await addDelay(10);
     arr[i].style.backgroundColor = 'var(--secondary-color)';
   }
 };

@@ -31,22 +31,19 @@ function NavBar() {
     dispatch(inputActions.setVisualize(false));
   };
 
-  const visualizationHandler = function () {
+  const visualizationHandler = async function () {
     const algoFunction = algoMap.get(algorithmState.id);
     dispatch(inputActions.setVisualize(true));
     dispatch(inputActions.setGenerate(true));
 
     if (type === 'sort') {
       const arr = arrayState.slice();
-      const sorted = algoFunction(arr);
-      setTimeout(() => {
-        dispatch(inputActions.setVisualize(false));
-        dispatch(inputActions.setGenerate(false));
-
-        if (typeof sorted !== 'object') {
-          dispatch(arrayActions.setArray(sorted));
-        }
-      }, algorithmState.time);
+      const sorted = await algoFunction(arr);
+      dispatch(inputActions.setVisualize(false));
+      dispatch(inputActions.setGenerate(false));
+      if (algorithmState.id === 's1' || algorithmState.id === 's2') {
+        dispatch(arrayActions.setArray(sorted));
+      }
     } else {
     }
   };
