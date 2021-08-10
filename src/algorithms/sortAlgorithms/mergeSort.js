@@ -1,5 +1,5 @@
 import classes from '../../components/sort/BarList.module.css';
-import { getBars, setBars } from '../../utils/arrayUtils';
+import { getBars, setBars, delay } from '../../utils/arrayUtils';
 
 const doMerge = function (
   arr,
@@ -61,9 +61,9 @@ const getMergeSortAnimations = function (arr) {
   return animations;
 };
 
-export const renderMergeSort = function (arr) {
-  const animations = getMergeSortAnimations(arr);
+const renderMergeSortAnimations = function (animations) {
   const bars = getBars(classes);
+  const promises = [];
   for (let i = 0; i < animations.length; i++) {
     const isColorChange = i % 3 !== 2;
     if (isColorChange) {
@@ -76,11 +76,14 @@ export const renderMergeSort = function (arr) {
           barOneStyle.backgroundColor = 'var(--compare-bar)';
           barTwoStyle.backgroundColor = 'var(--main-bar)';
         }, i * 15);
+
+        promises.push(delay(i * 15));
       } else {
         setTimeout(() => {
           barOneStyle.backgroundColor = 'var(--secondary-color)';
           barTwoStyle.backgroundColor = 'var(--secondary-color)';
         }, i * 15);
+        promises.push(delay(i * 15));
       }
     } else {
       setTimeout(() => {
@@ -89,12 +92,16 @@ export const renderMergeSort = function (arr) {
 
         barOneStyle.height = `${newHeight}px`;
       }, i * 15);
+      promises.push(delay(i * 15));
     }
   }
 
-  setTimeout(() => {
-    setBars(classes);
-  }, 33250);
+  return Promise.all(promises);
+};
 
+export const renderMergeSort = async function (arr) {
+  const animations = getMergeSortAnimations(arr);
+  await renderMergeSortAnimations(animations);
+  setBars(classes);
   return arr;
 };

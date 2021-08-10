@@ -1,11 +1,5 @@
 import classes from '../../components/sort/BarList.module.css';
-import { setBars, getBars } from '../../utils/arrayUtils';
-
-const delay = function (t) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, t);
-  });
-};
+import { setBars, getBars, delay } from '../../utils/arrayUtils';
 
 const renderAnimations = function (animations) {
   let arr = getBars(classes);

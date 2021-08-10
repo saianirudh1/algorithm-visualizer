@@ -98,3 +98,9 @@ export const setBars = async function (classes) {
     right++;
   }
 };
+
+export const delay = function (t) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, t);
+  });
+};
