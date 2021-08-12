@@ -1,5 +1,12 @@
+import BoxList from './BoxList';
+import classes from './PathComponent.module.css';
+
 function PathComponent() {
-  return <div></div>;
+  return (
+    <main className={classes.path}>
+      <BoxList />
+    </main>
+  );
 }
 
 export default PathComponent;

@@ -1,0 +1,19 @@
+.controls {
+  height: auto;
+  width: auto;
+  margin: 1%;
+  border-radius: 1rem;
+  background-color: var(--secondary-background);
+}
+
+.control-btn {
+  border-radius: 0px;
+  min-width: 7em;
+}
+
+.control-btn:hover,
+.control-btn:focus {
+  background-color: var(--hover-color);
+  opacity: 100%;
+  border-radius: 1rem;
+}
