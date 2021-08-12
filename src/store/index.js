@@ -3,6 +3,7 @@ import typeReducer from './type';
 import algorithmReducer from './algorithm';
 import arrayReducer from './array';
 import inputReducer from './input';
+import gridReducer from './grid';
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     algorithm: algorithmReducer,
     array: arrayReducer,
     input: inputReducer,
+    grid: gridReducer,
   },
 });
 

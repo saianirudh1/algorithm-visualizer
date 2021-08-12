@@ -2,4 +2,12 @@
   width: 5.5em;
   height: 5.5em;
   border: 1px solid var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 4.5em;
+  width: 4.5em;
 }
