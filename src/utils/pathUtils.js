@@ -3,10 +3,10 @@ const windowHeight = window.innerHeight;
 const row = Math.round(windowWidth * 0.0175);
 const col = Math.round(windowHeight * 0.014);
 
-let START_NODE_ROW = 0;
-let START_NODE_COL = 0;
-let FINISH_NODE_ROW = 1;
-let FINISH_NODE_COL = 1;
+export let START_NODE_ROW = 0;
+export let START_NODE_COL = 0;
+export let FINISH_NODE_ROW = 1;
+export let FINISH_NODE_COL = 1;
 
 export const getInitialGrid = function () {
   START_NODE_ROW = Math.round(col / 2);

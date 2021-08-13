@@ -5,7 +5,11 @@ import start from '../../img/start.svg';
 
 function Box(props) {
   return (
-    <div className={classes.box} onClick={props.onClick}>
+    <div
+      className={classes.box}
+      onClick={props.onClick}
+      id={`box-${props.row}-${props.col}`}
+    >
       {props.isFinish ? (
         <img className={classes.logo} src={target} alt="Target Logo" />
       ) : props.isStart ? (
