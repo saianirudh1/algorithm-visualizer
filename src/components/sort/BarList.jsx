@@ -26,7 +26,7 @@ function BarList() {
   ));
 
   return (
-    <div className={classes.main}>
+    <section className={classes.main}>
       <Button
         className={classes.generate}
         onClick={generateArrayHandler}
@@ -37,7 +37,7 @@ function BarList() {
       <div className={classes.list} id="#main">
         {bars}
       </div>
-    </div>
+    </section>
   );
 }
 

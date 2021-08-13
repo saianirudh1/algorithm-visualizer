@@ -1,0 +1,14 @@
+.path-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.box-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1%;
+}

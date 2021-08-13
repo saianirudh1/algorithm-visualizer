@@ -16,6 +16,7 @@ function NavBar() {
   const type = useSelector((state) => state.type.algoType);
   const algorithmState = useSelector((state) => state.algorithm);
   const arrayState = useSelector((state) => state.array.arr);
+  const gridState = useSelector((state) => state.grid);
 
   const sortButtonHandler = function () {
     dispatch(typeActions.setType('sort'));
@@ -45,6 +46,8 @@ function NavBar() {
         dispatch(arrayActions.setArray(sorted));
       }
     } else {
+      const grid = gridState.grid.slice();
+      algoFunction(grid);
     }
   };
 

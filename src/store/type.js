@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { algoType: 'sort' };
+const initialState = { algoType: 'path' };
 const typeSlice = createSlice({
   name: 'type',
   initialState,

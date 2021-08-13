@@ -1,0 +1,39 @@
+.controls {
+  height: auto;
+  width: auto;
+  margin: 1%;
+  border-radius: 1rem;
+  background-color: var(--secondary-background);
+}
+
+.control-btn {
+  position: relative;
+  bottom: 0em;
+  border-radius: 0px;
+  min-width: 7em;
+  height: 100%;
+}
+
+.control-btn:hover,
+.control-btn:focus {
+  background-color: var(--hover-color);
+  opacity: 100%;
+  bottom: 0.5rem;
+  border-radius: 0.5rem;
+  transition: bottom 0.25s ease-in;
+}
+
+.control-selected {
+  background-color: var(--hover-color);
+  opacity: 100%;
+  bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.control-btn img {
+  width: 1.5em;
+  position: relative;
+  top: 1rem;
+  margin-right: 10px;
+  filter: invert(100%);
+}
