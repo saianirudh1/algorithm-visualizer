@@ -15,7 +15,9 @@ Try out the app here :
   - Bubble Sort
 
 - ### Path Algorithms
+  - A\* Search
   - Breadth First Search
+  - Depth First Search
 
 ## Built Using
 
