@@ -2,8 +2,8 @@ import classes from '../components/path/Box.module.css';
 
 const windowWidth = window.innerWidth;
 const windowHeight = window.innerHeight;
-const row = Math.round(windowHeight * 0.014);
-const col = Math.round(windowWidth * 0.0175);
+const row = Math.round(windowHeight * 0.0185);
+const col = Math.round(windowWidth * 0.024);
 
 export let START_NODE_ROW = 0;
 export let START_NODE_COL = 0;

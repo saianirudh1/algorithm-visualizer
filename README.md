@@ -14,6 +14,9 @@ Try out the app here :
   - Selection Sort
   - Bubble Sort
 
+- ### Path Algorithms
+  - Breadth First Search
+
 ## Built Using
 
 - HTML

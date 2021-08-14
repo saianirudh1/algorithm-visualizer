@@ -38,6 +38,7 @@ function NavBar() {
     const algoFunction = algoMap.get(algorithmState.id);
     dispatch(inputActions.setVisualize(true));
     dispatch(inputActions.setGenerate(true));
+    dispatch(inputActions.setControl(true));
 
     if (type === 'sort') {
       const arr = arrayState.slice();
@@ -51,6 +52,7 @@ function NavBar() {
       const grid = getCopy(gridState.grid.slice());
       await algoFunction(grid);
       dispatch(inputActions.setVisualize(false));
+      dispatch(inputActions.setControl(false));
     }
   };
 

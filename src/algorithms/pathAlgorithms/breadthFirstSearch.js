@@ -46,19 +46,19 @@ export const breadthFirstSearch = function (
 };
 
 const animateBreadthFirstSearch = async function (visitedNodesInOrder) {
-  let promises = [];
+  const promises = [];
   for (let index = 0; index < visitedNodesInOrder.length; index++) {
     const item = visitedNodesInOrder[index];
     const box = document.getElementById(`box-${item.row}-${item.col}`);
     setTimeout(() => {
       box.classList.add(classes['box-visited']);
-    }, index * 15);
+    }, index * 20);
 
     promises.push(
       new Promise((resolve) => {
         setTimeout(() => {
           resolve();
-        }, index * 15);
+        }, index * 20);
       })
     );
   }
@@ -67,11 +67,10 @@ const animateBreadthFirstSearch = async function (visitedNodesInOrder) {
 };
 
 const animateShortestPath = async function (lastbox) {
-  let promises = [];
+  const promises = [];
   let previousBox = lastbox.previousBox;
   let index = 0;
   while (previousBox != null) {
-    console.log(previousBox);
     const box = document.getElementById(
       `box-${previousBox.row}-${previousBox.col}`
     );
