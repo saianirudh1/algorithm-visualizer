@@ -7,7 +7,7 @@ import wall from '../../img/wall.png';
 import classes from './Controls.module.css';
 
 import { gridActions } from '../../store/grid';
-import { getInitialGrid } from '../../utils/pathUtils';
+import { getInitialGrid, removeAnimationClasses } from '../../utils/pathUtils';
 
 function Controls() {
   const dispatch = useDispatch();
@@ -20,6 +20,7 @@ function Controls() {
   const handleClearBoard = function () {
     dispatch(gridActions.setGrid(getInitialGrid()));
     dispatch(gridActions.setType(''));
+    removeAnimationClasses();
   };
 
   return (
