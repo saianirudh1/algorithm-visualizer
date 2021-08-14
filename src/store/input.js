@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { visualize: true, generate: false };
+const initialState = { visualize: true, generate: false, control: false };
 const inputSlice = createSlice({
   name: 'input',
   initialState,
@@ -11,6 +11,10 @@ const inputSlice = createSlice({
 
     setGenerate(state, action) {
       state.generate = action.payload;
+    },
+
+    setControl(state, action) {
+      state.control = action.payload;
     },
   },
 });

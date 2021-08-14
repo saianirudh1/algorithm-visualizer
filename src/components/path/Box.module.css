@@ -1,6 +1,6 @@
 .box {
-  width: 5.5em;
-  height: 5.5em;
+  width: 4em;
+  height: 4em;
   border: 1px solid var(--secondary-color);
   display: flex;
   align-items: center;
@@ -8,8 +8,8 @@
 }
 
 .logo {
-  height: 4.5em;
-  width: 4.5em;
+  height: 3em;
+  width: 3em;
 }
 
 .box-visited {
