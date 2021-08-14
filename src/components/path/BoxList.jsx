@@ -23,7 +23,6 @@ function BoxList() {
     dispatch(gridActions.setGrid(getInitialGrid()));
   }, [dispatch]);
 
-  const mouseIsPressed = function () {};
   const handleMouseClick = function (row, col) {
     if (animation) {
       return;
@@ -44,13 +43,10 @@ function BoxList() {
       dispatch(gridActions.setGrid(newGrid));
     }
   };
-  const handleMouseDown = function () {};
-  const handleMouseUp = function () {};
-  const handleMouseEnter = function () {};
 
   const boxes = grid.map((row, rowIndex) => {
     return (
-      <div key={rowIndex}>
+      <div key={rowIndex} style={{ display: 'flex' }}>
         {row.map((box, boxIndex) => {
           const { row, col, isFinish, isStart, isWall } = box;
           return (
@@ -61,11 +57,7 @@ function BoxList() {
               isFinish={isFinish}
               isStart={isStart}
               isWall={isWall}
-              mouseIsPressed={mouseIsPressed}
               onClick={() => handleMouseClick(row, col)}
-              onMouseDown={handleMouseDown}
-              onMouseEnter={handleMouseEnter}
-              onMouseUp={handleMouseUp}
             />
           );
         })}

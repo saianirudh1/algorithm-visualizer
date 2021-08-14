@@ -4,6 +4,8 @@ import { renderSelectionSort } from '../algorithms/sortAlgorithms/selectionSort'
 import { renderMergeSort } from '../algorithms/sortAlgorithms/mergeSort';
 import { renderQuickSort } from '../algorithms/sortAlgorithms/quickSort';
 
+import { renderBreadthFirstSearch } from '../algorithms/pathAlgorithms/breadthFirstSearch';
+
 export const sortingAlgorithms = [
   { id: 's1', name: 'Quick Sort', func: renderQuickSort },
   { id: 's2', name: 'Merge Sort', func: renderMergeSort },
@@ -13,7 +15,7 @@ export const sortingAlgorithms = [
 ];
 
 export const pathAlgorithms = [
-  { id: 'p1', name: `Dijkstra's Algortithm`, func: () => {} },
+  { id: 'p1', name: 'Breadth First Search', func: renderBreadthFirstSearch },
 ];
 
 export const algoMap = new Map();

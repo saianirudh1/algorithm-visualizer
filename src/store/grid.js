@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { grid: [], mouseIsPressed: false, type: '' };
+const initialState = { grid: [], type: '' };
 const gridSlice = createSlice({
   name: 'grid',
   initialState,

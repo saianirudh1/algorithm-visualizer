@@ -14,7 +14,7 @@
 
 .box-visited {
   animation-name: visitedAnimation;
-  animation-duration: 1.5s;
+  animation-duration: 0.6s;
   animation-timing-function: ease-out;
   animation-delay: 0;
   animation-direction: alternate;
@@ -26,28 +26,30 @@
 @keyframes visitedAnimation {
   0% {
     transform: scale(0.3);
-    background-color: rgba(0, 0, 66, 0.75);
+    transform-origin: center;
+    background-color: var(--box-animation-1);
     border-radius: 100%;
   }
 
   50% {
-    background-color: rgba(17, 104, 217, 0.75);
+    background-color: var(--box-animation-2);
   }
 
   75% {
-    transform: scale(1.2);
-    background-color: rgba(0, 217, 159, 0.75);
+    transform: scale(1.1);
+    background-color: var(--box-animation-3);
   }
 
   100% {
     transform: scale(1);
-    background-color: rgba(0, 190, 218, 0.75);
+    background-color: var(--box-animation-4);
+    border-radius: 0%;
   }
 }
 
 .box-shortest-path {
   animation-name: shortestPath;
-  animation-duration: 1.5s;
+  animation-duration: 0.6s;
   animation-timing-function: ease-out;
   animation-delay: 0;
   animation-direction: alternate;
@@ -59,16 +61,47 @@
 @keyframes shortestPath {
   0% {
     transform: scale(0.6);
-    background-color: rgb(255, 254, 106);
+    background-color: var(--done-animation-1);
   }
 
   50% {
     transform: scale(1.2);
-    background-color: rgb(255, 254, 106);
+    background-color: var(--done-animation-2);
   }
 
   100% {
     transform: scale(1);
-    background-color: rgb(255, 254, 106);
+    background-color: var(--done-bar);
+  }
+}
+
+.box-failure {
+  animation-name: failure;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes failure {
+  0% {
+    transform: scale(0.3);
+    background-color: var(--box-animation-2);
+    border-radius: 100%;
+  }
+
+  50% {
+    transform: scale(1.5);
+    background-color: var(--compare-bar);
+    border-radius: 0%;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: var(--swap-bar);
+    border-radius: 0%;
   }
 }

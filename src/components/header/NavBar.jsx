@@ -4,9 +4,11 @@ import NavList from './NavList';
 import Button from '../UI/Button';
 import classes from './NavBar.module.css';
 
+import { getCopy } from '../../utils/pathUtils';
+import { algoMap } from '../../constants/appConstants';
+
 import { typeActions } from '../../store/type';
 import { algorithmActions } from '../../store/algorithm';
-import { algoMap } from '../../constants/appConstants';
 import { inputActions } from '../../store/input';
 import { arrayActions } from '../../store/array';
 
@@ -46,8 +48,9 @@ function NavBar() {
         dispatch(arrayActions.setArray(sorted));
       }
     } else {
-      const grid = gridState.grid.slice();
-      algoFunction(grid);
+      const grid = getCopy(gridState.grid.slice());
+      await algoFunction(grid);
+      dispatch(inputActions.setVisualize(false));
     }
   };
 

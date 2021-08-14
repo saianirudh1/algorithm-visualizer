@@ -12,6 +12,14 @@
   --compare-bar: #d84315;
   --swap-bar: #d32f2f;
   --done-bar: #2e7d32;
+
+  --box-animation-1: #d32f2f;
+  --box-animation-2: #c2185b;
+  --box-animation-3: #512da8;
+  --box-animation-4: #1976d2;
+
+  --done-animation-1: #1565c0;
+  --done-animation-2: #00838f;
 }
 
 * {
