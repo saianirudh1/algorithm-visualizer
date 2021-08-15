@@ -66,11 +66,13 @@ const animateBreadthFirstSearch = async function (visitedNodesInOrder) {
   return Promise.all(promises);
 };
 
-const animateShortestPath = async function (lastbox) {
+const animateShortestPath = async function (lastBox) {
   const promises = [];
-  let previousBox = lastbox.previousBox;
-  let index = 0;
-  while (previousBox != null) {
+  for (
+    let previousBox = lastBox, index = 0;
+    previousBox !== null;
+    previousBox = previousBox.previousBox, index++
+  ) {
     const box = document.getElementById(
       `box-${previousBox.row}-${previousBox.col}`
     );
@@ -87,15 +89,12 @@ const animateShortestPath = async function (lastbox) {
         }, index * 25);
       })
     );
-
-    previousBox = previousBox.previousBox;
-    index++;
   }
 
   return Promise.all(promises);
 };
 
-const animateFailure = async function (startBox) {
+const animateFailure = function (startBox) {
   const start = document.getElementById(`box-${startBox.row}-${startBox.col}`);
   start.classList.remove(classes['box-visited']);
   start.classList.add(classes['box-failure']);
@@ -111,6 +110,6 @@ export const renderBreadthFirstSearch = async function (grid) {
   if (lastbox.isFinish) {
     await animateShortestPath(lastbox);
   } else {
-    await animateFailure(startBox);
+    animateFailure(startBox);
   }
 };

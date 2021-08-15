@@ -6,6 +6,7 @@ import { renderQuickSort } from '../algorithms/sortAlgorithms/quickSort';
 
 import { renderBreadthFirstSearch } from '../algorithms/pathAlgorithms/breadthFirstSearch';
 import { renderDepthFirstSearch } from '../algorithms/pathAlgorithms/depthFirstSearch';
+import { renderAStarSearch } from '../algorithms/pathAlgorithms/aStarAlgorithm';
 
 export const sortingAlgorithms = [
   { id: 's1', name: 'Quick Sort', func: renderQuickSort },
@@ -16,8 +17,9 @@ export const sortingAlgorithms = [
 ];
 
 export const pathAlgorithms = [
-  { id: 'p1', name: 'Breadth First Search', func: renderBreadthFirstSearch },
-  { id: 'p2', name: 'Depth First Search', func: renderDepthFirstSearch },
+  { id: 'p1', name: 'A* Search', func: renderAStarSearch },
+  { id: 'p2', name: 'Breadth First Search', func: renderBreadthFirstSearch },
+  { id: 'p3', name: 'Depth First Search', func: renderDepthFirstSearch },
 ];
 
 export const algoMap = new Map();

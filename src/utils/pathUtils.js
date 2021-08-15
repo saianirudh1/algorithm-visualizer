@@ -83,6 +83,9 @@ const createBox = function (row, col) {
     isVisited: false,
     isWall: false,
     previousBox: null,
+    gScore: Infinity,
+    hScore: Infinity,
+    fScore: Infinity,
   };
 };
 
@@ -106,4 +109,10 @@ export const removeAnimationClasses = function () {
     box.classList.remove(classes['box-shortest-path']);
     box.classList.remove(classes['box-failure']);
   }
+};
+
+export const getPromise = function (time) {
+  return new Promise((resolve) => {
+    resolve();
+  }, time);
 };
