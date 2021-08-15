@@ -50,7 +50,7 @@ const calcHscore = function (grid, finishBox) {
  * @summary This function is used to determine the closest Box to the finish. This is not optimal as this can be done if we store the
  * openSet in an min-heap or PriorityQueue
  *
- * @param {Array} arr
+ * @param {Array} arr The openSet array
  *
  * @returns {number} The Box with the minimum Fscore
  */
@@ -75,11 +75,11 @@ const getClosest = function (arr) {
 };
 
 /**
- * @summary This function is used to perform the A* Search Alogirithm.
+ * @summary This function is used to perform the A* Search Algorithm.
  * Learn more about A* Search here - https://en.wikipedia.org/wiki/A*_search_algorithm
  *
- * @param {Array} grid
- * @param {Box} startBox
+ * @param {Array} grid The grid of Boxes
+ * @param {Box} startBox The startBox object representing the starting point of the grid.
  *
  * @returns {Array} The visited Boxes in order which they were evaluated.
  */
@@ -135,7 +135,7 @@ const aStarAlgorithm = function (grid, startBox) {
 /**
  * @summary This function is used to animate the boxes in order by simply adding the 'box-visited' class to each box-div in the dom
  *
- * @param {Array} visited
+ * @param {Array} visited The visited boxes in order
  *
  * @returns {Promise}
  */
@@ -169,13 +169,12 @@ const animateVisitedBoxes = function (visited) {
 
 /**
  * @summary This function is used to animate the boxes of the shortest path by exploring the previous boxes attached.
- * The animation is done by simply adding the 'box-shortest-path' class to each box-div in the dom
+ * The animation is done by simply adding the 'box-shortest-path' class to each box-div in the DOM
  *
- * @param {Box} lastBox
+ * @param {Box} lastBox The Target Box object set by the user.
  *
  * @returns {Promise}
  */
-
 const animateShortestPath = function (lastBox) {
   const promises = [];
 
@@ -206,11 +205,10 @@ const animateShortestPath = function (lastBox) {
 /**
  * @summary This function is used to animate the startBox if the finishBox is unreachable
  *
- * @param {Box} startBox
+ * @param {Box} startBox The startBox object representing the starting point of the grid.
  *
  * @returns {void}
  */
-
 const animateFailure = function (startBox) {
   const start = document.getElementById(`box-${startBox.row}-${startBox.col}`);
   start.classList.remove(classes['box-visited']);
@@ -220,7 +218,7 @@ const animateFailure = function (startBox) {
 /**
  * @summary This function is used to render the A* Search animations when the user clicks the 'Visualize' button.
  *
- * @param {Array} grid
+ * @param {Array} grid The grid with boxes
  *
  * @returns {Promise}
  */
