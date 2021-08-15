@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { visualize: true, generate: false, control: false };
+const initialState = {
+  visualize: true,
+  generate: false,
+  control: false,
+  input: false,
+};
 const inputSlice = createSlice({
   name: 'input',
   initialState,
@@ -15,6 +20,10 @@ const inputSlice = createSlice({
 
     setControl(state, action) {
       state.control = action.payload;
+    },
+
+    setNav(state, action) {
+      state.nav = action.payload;
     },
   },
 });
