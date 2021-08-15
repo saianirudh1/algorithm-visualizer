@@ -1,6 +1,18 @@
 import classes from '../../components/sort/BarList.module.css';
 import { getBars, setBars, delay } from '../../utils/arrayUtils';
 
+/**
+ * @summary This function is used to merge the left and right sorted arrays.
+ *
+ * @param {Array} arr The array with the bar heights.
+ * @param {number} leftIndex The leftIndex of the  array
+ * @param {number} midIndex The midIndex of the array
+ * @param {number} rightIndex The rightIndex of the array
+ * @param {Array} tempArr Temp array which is used to store the sorted arrays
+ * @param {Array} animations The animations array used to store the animations
+ *
+ * @returns {void}
+ */
 const doMerge = function (
   arr,
   leftIndex,
@@ -39,6 +51,17 @@ const doMerge = function (
   }
 };
 
+/**
+ * @summary This function is used to run the Merge Sort Algorithm and update the animations array
+ *
+ * @param {Array} arr The array with the bar heights
+ * @param {number} leftIndex the leftIndex of the array
+ * @param {number} rightIndex the rightIndex of the array
+ * @param {Array} tempArr The tempArr which is used to store the arr data
+ * @param {Array} animations The animations array which is used to store the animations
+ *
+ * @returns {void}
+ */
 const mergeSortHelper = function (
   arr,
   leftIndex,
@@ -53,6 +76,13 @@ const mergeSortHelper = function (
   doMerge(arr, leftIndex, middleIdx, rightIndex, tempArr, animations);
 };
 
+/**
+ * @summary This function is used to get the merge sort animations
+ *
+ * @param {Array} arr The array with bar heights
+ *
+ * @returns {void}
+ */
 const getMergeSortAnimations = function (arr) {
   const animations = [];
   if (arr.length <= 1) return arr;
@@ -61,6 +91,13 @@ const getMergeSortAnimations = function (arr) {
   return animations;
 };
 
+/**
+ * @summary This function is used to render the merge sort animations.
+ *
+ * @param {Array} animations The array with the animations in order
+ *
+ * @returns
+ */
 const renderAnimations = function (animations) {
   const bars = getBars(classes);
   const promises = [];
@@ -99,6 +136,13 @@ const renderAnimations = function (animations) {
   return Promise.all(promises);
 };
 
+/**
+ * @summary This function is used to render the Merge Sort Animations when the user clicks 'Visualize' button
+ *
+ * @param {Array} arr The array with the bar heights.
+ *
+ * @returns {Array} Sorted Array
+ */
 export const renderMergeSort = async function (arr) {
   const animations = getMergeSortAnimations(arr);
   await renderAnimations(animations);

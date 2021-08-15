@@ -110,9 +110,3 @@ export const removeAnimationClasses = function () {
     box.classList.remove(classes['box-failure']);
   }
 };
-
-export const getPromise = function (time) {
-  return new Promise((resolve) => {
-    resolve();
-  }, time);
-};
