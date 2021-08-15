@@ -1,6 +1,11 @@
 import classes from '../../components/sort/BarList.module.css';
 import { swap, getHeight, addDelay } from '../../utils/arrayUtils';
 
+/**
+ * @summary This function is used to render the Insertion Sort Algorithm while animating the bars in order.
+ *
+ * @returns {Promise}
+ */
 const renderAnimations = async function () {
   const promises = [];
 
@@ -41,6 +46,11 @@ const renderAnimations = async function () {
   return Promise.all(promises);
 };
 
+/**
+ * @summary This function is used to render the Selection Sort animations
+ *
+ * @returns {Promise}
+ */
 export const renderSelectionSort = async function () {
   await renderAnimations();
 

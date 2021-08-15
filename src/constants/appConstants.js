@@ -31,3 +31,10 @@ sortingAlgorithms.forEach((item) => {
 pathAlgorithms.forEach((item) => {
   algoMap.set(item.id, item.func);
 });
+
+export const SORT = 'sort';
+export const PATH = 'path';
+
+export const START = 'start';
+export const WALL = 'wall';
+export const TARGET = 'target';

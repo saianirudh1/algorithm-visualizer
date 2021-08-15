@@ -1,6 +1,11 @@
 import classes from '../../components/sort/BarList.module.css';
 import { addDelay, getHeight, swap } from '../../utils/arrayUtils';
 
+/**
+ * @summary This function performs Insertion Sort on the bars while animating them.
+ *
+ * @returns {Promise}
+ */
 const renderAnimations = async function () {
   const promises = [];
 
@@ -37,6 +42,11 @@ const renderAnimations = async function () {
   return Promise.all(promises);
 };
 
+/**
+ * @summary This function is used to render Insertion Sort animations.
+ *
+ * @returns {Promise}
+ */
 export const renderInsertionSort = async function () {
   await renderAnimations();
 

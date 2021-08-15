@@ -12,6 +12,7 @@ import {
   getInitialGrid,
 } from '../../utils/pathUtils';
 import { gridActions } from '../../store/grid';
+import { START, TARGET, WALL } from '../../constants/appConstants';
 
 function BoxList() {
   const animation = false;
@@ -28,17 +29,17 @@ function BoxList() {
       return;
     }
 
-    if (gridType === 'start') {
+    if (gridType === START) {
       const newGrid = getGridWithStart(grid, row, col);
       dispatch(gridActions.setGrid(newGrid));
     }
 
-    if (gridType === 'target') {
+    if (gridType === TARGET) {
       const newGrid = getGridWithTarget(grid, row, col);
       dispatch(gridActions.setGrid(newGrid));
     }
 
-    if (gridType === 'wall') {
+    if (gridType === WALL) {
       const newGrid = getGridWithWall(grid, row, col);
       dispatch(gridActions.setGrid(newGrid));
     }

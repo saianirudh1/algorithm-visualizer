@@ -1,6 +1,11 @@
 import classes from '../../components/sort/BarList.module.css';
 import { getHeight, swap, addDelay } from '../../utils/arrayUtils';
 
+/**
+ * @summary This function is used to perform Bubble Sort on the bars while animating them.
+ *
+ * @returns {Promise}
+ */
 const renderAnimations = async function () {
   const promises = [];
 
@@ -33,6 +38,11 @@ const renderAnimations = async function () {
   return Promise.all(promises);
 };
 
+/**
+ * @summary This function is used to render the Bubble Sort Animations
+ *
+ * @returns {Promise}
+ */
 export const renderBubbleSort = async function () {
   await renderAnimations();
 

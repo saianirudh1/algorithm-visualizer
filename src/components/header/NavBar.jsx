@@ -5,7 +5,7 @@ import Button from '../UI/Button';
 import classes from './NavBar.module.css';
 
 import { getCopy } from '../../utils/pathUtils';
-import { algoMap } from '../../constants/appConstants';
+import { algoMap, PATH, SORT } from '../../constants/appConstants';
 
 import { typeActions } from '../../store/type';
 import { algorithmActions } from '../../store/algorithm';
@@ -40,7 +40,7 @@ function NavBar() {
     dispatch(inputActions.setVisualize(true));
     dispatch(inputActions.setNav(true));
 
-    if (type === 'sort') {
+    if (type === SORT) {
       dispatch(inputActions.setGenerate(true));
       const arr = arrayState.slice();
       const sorted = await algoFunction(arr);
@@ -62,14 +62,14 @@ function NavBar() {
     <nav>
       <ul className={classes.navlist}>
         <Button
-          className={type === 'path' ? classes['btn--selected'] : ''}
+          className={type === PATH ? classes['btn--selected'] : ''}
           onClick={pathButtonHandler}
           isDisabled={navIsDisabled}
         >
           Path Algorithms
         </Button>
         <Button
-          className={type === 'sort' ? classes['btn--selected'] : ''}
+          className={type === SORT ? classes['btn--selected'] : ''}
           onClick={sortButtonHandler}
           isDisabled={navIsDisabled}
         >
