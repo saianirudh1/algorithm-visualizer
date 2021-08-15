@@ -3,6 +3,17 @@ import { START_NODE_COL, START_NODE_ROW } from '../../utils/pathUtils';
 
 const dir = [-1, 0, 1, 0, -1];
 
+/**
+ * @summary Helper recursive function to perform the DFS algorithm
+ *
+ * @param {Array} grid The grid of Box objects
+ * @param {Box} box  The current Box object
+ * @param {*} distance The distance from the startBox to the currentBox
+ * @param {*} seen The Array to store the boxes which we have already explored
+ * @param {*} visited  The array to store the boxes which we visit
+ *
+ * @returns {void}
+ */
 const dfsHelper = function (grid, box, distance, seen, visited) {
   if ((visited.length && visited[visited.length - 1].isFinish) || box.isWall) {
     return;
@@ -33,6 +44,14 @@ const dfsHelper = function (grid, box, distance, seen, visited) {
   }
 };
 
+/**
+ * @summary This function is used to perform the Depth First Search Algorithm.
+ *
+ * @param {Array} grid The grid of Box objects
+ * @param {Box} startBox The startBox object representing the starting point of the grid.
+ *
+ * @returns {Promise}
+ */
 const depthFirstSearch = function (grid, startBox) {
   const seen = Array.from(Array(grid.length), () =>
     Array(grid[0].length).fill(false)
@@ -44,6 +63,13 @@ const depthFirstSearch = function (grid, startBox) {
   return visitedBoxesInOrder;
 };
 
+/**
+ * @summary This function is used to animate the boxes in order by simply adding the 'box-visited' class to each box-div in the dom
+ *
+ * @param {Array} visitedBoxesInOrder The visited boxes by the DFS Algorithm in order.
+ *
+ * @returns {Promise}
+ */
 const animateVisitedBoxes = function (visitedBoxesInOrder) {
   const promises = [];
   for (let index = 0; index < visitedBoxesInOrder.length; index++) {
@@ -68,6 +94,14 @@ const animateVisitedBoxes = function (visitedBoxesInOrder) {
   return Promise.all(promises);
 };
 
+/**
+ * @summary This function is used to animate the boxes of the shortest path by exploring the previous boxes attached.
+ * The animation is done by simply adding the 'box-shortest-path' class to each box-div in the DOM
+ *
+ * @param {Box} lastBox The Target Box set by the user.
+ *
+ * @returns {Promise}
+ */
 const animatePath = function (lastBox) {
   const promises = [];
 
@@ -95,12 +129,26 @@ const animatePath = function (lastBox) {
   return Promise.all(promises);
 };
 
+/**
+ * @summary This function is used to animate the startBox if the finishBox is unreachable
+ *
+ * @param {Box} startBox The startBox object representing the starting point of the grid.
+ *
+ * @returns {void}
+ */
 const animateFailure = function (startBox) {
   const start = document.getElementById(`box-${startBox.row}-${startBox.col}`);
   start.classList.remove(classes['box-visited']);
   start.classList.add(classes['box-failure']);
 };
 
+/**
+ * @summary This function is used to render the Depth First Search animations when the user clicks the 'Visualize' button.
+ *
+ * @param {Array} grid The grid with boxes
+ *
+ * @returns {Promise}
+ */
 export const renderDepthFirstSearch = async function (grid) {
   const startBox = grid[START_NODE_ROW][START_NODE_COL];
   const visitedBoxesInOrder = depthFirstSearch(grid, startBox);

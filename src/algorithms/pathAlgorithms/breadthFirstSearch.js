@@ -1,29 +1,37 @@
 import classes from '../../components/path/Box.module.css';
 import { START_NODE_COL, START_NODE_ROW } from '../../utils/pathUtils';
 
-const dir = [-1, 0, 1, 0, -1];
-
+/**
+ * @summary This function is used to perform the Breadth First Search Algorithm.
+ *
+ * @param {Array} grid The grid of Box objects
+ * @param {Box} startBox The startBox object representing the starting point of the grid.
+ * @param {Array} visitedBoxesInOrder The Array to store the visited boxes in order.
+ *
+ * @returns {void}
+ */
 export const breadthFirstSearch = function (
   grid,
-  startNode,
-  visitedNodesInOrder
+  startBox,
+  visitedBoxesInOrder
 ) {
   const m = grid.length,
     n = grid[0].length;
 
   const seen = Array.from(Array(m), () => Array(n).fill(false));
+  const dir = [-1, 0, 1, 0, -1];
 
   const bfsQueue = [];
-  bfsQueue.push(startNode);
-  startNode.distance = 0;
-  seen[startNode.row][startNode.col] = true;
+  bfsQueue.push(startBox);
+  startBox.distance = 0;
+  seen[startBox.row][startBox.col] = true;
 
   while (bfsQueue.length !== 0) {
     const box = bfsQueue.shift();
 
     if (box.isWall) continue;
 
-    visitedNodesInOrder.push(box);
+    visitedBoxesInOrder.push(box);
 
     if (box.isFinish) {
       break;
@@ -45,10 +53,17 @@ export const breadthFirstSearch = function (
   }
 };
 
-const animateBreadthFirstSearch = async function (visitedNodesInOrder) {
+/**
+ * @summary This function is used to animate the boxes in order by simply adding the 'box-visited' class to each box-div in the dom
+ *
+ * @param {Array} visitedBoxesInOrder The visited boxes by the DFS Algorithm in order.
+ *
+ * @returns {Promise}
+ */
+const animateBreadthFirstSearch = async function (visitedbBoxesInOrder) {
   const promises = [];
-  for (let index = 0; index < visitedNodesInOrder.length; index++) {
-    const item = visitedNodesInOrder[index];
+  for (let index = 0; index < visitedbBoxesInOrder.length; index++) {
+    const item = visitedbBoxesInOrder[index];
     const box = document.getElementById(`box-${item.row}-${item.col}`);
     setTimeout(() => {
       box.classList.add(classes['box-visited']);
@@ -66,6 +81,14 @@ const animateBreadthFirstSearch = async function (visitedNodesInOrder) {
   return Promise.all(promises);
 };
 
+/**
+ * @summary This function is used to animate the boxes of the shortest path by exploring the previous boxes attached.
+ * The animation is done by simply adding the 'box-shortest-path' class to each box-div in the DOM
+ *
+ * @param {Box} lastBox The Target Box set by the user.
+ *
+ * @returns {Promise}
+ */
 const animateShortestPath = async function (lastBox) {
   const promises = [];
   for (
@@ -94,12 +117,26 @@ const animateShortestPath = async function (lastBox) {
   return Promise.all(promises);
 };
 
+/**
+ * @summary This function is used to animate the startBox if the finishBox is unreachable
+ *
+ * @param {Box} startBox The startBox object representing the starting point of the grid.
+ *
+ * @returns {void}
+ */
 const animateFailure = function (startBox) {
   const start = document.getElementById(`box-${startBox.row}-${startBox.col}`);
   start.classList.remove(classes['box-visited']);
   start.classList.add(classes['box-failure']);
 };
 
+/**
+ * @summary This function is used to render the Breadth First Search animations when the user clicks the 'Visualize' button.
+ *
+ * @param {Array} grid The grid with boxes
+ *
+ * @returns {Promise}
+ */
 export const renderBreadthFirstSearch = async function (grid) {
   const startBox = grid[START_NODE_ROW][START_NODE_COL];
   const visitedBoxesInOrder = [];
