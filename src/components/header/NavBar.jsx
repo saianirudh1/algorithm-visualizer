@@ -60,17 +60,16 @@ function NavBar() {
     <nav>
       <ul className={classes.navlist}>
         <Button
-          className={type === 'sort' ? classes['btn--selected'] : ''}
-          onClick={sortButtonHandler}
-        >
-          Sorting Algorithms
-        </Button>
-
-        <Button
           className={type === 'path' ? classes['btn--selected'] : ''}
           onClick={pathButtonHandler}
         >
           Path Algorithms
+        </Button>
+        <Button
+          className={type === 'sort' ? classes['btn--selected'] : ''}
+          onClick={sortButtonHandler}
+        >
+          Sorting Algorithms
         </Button>
         <NavList type={type} enableVisualize={enableVisualize} />
         <Button
