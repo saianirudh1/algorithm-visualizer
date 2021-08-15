@@ -3,7 +3,7 @@ import { START_NODE_COL, START_NODE_ROW } from '../../utils/pathUtils';
 
 const dir = [-1, 0, 1, 0, -1];
 
-export const dfsHelper = function (grid, box, distance, seen, visited) {
+const dfsHelper = function (grid, box, distance, seen, visited) {
   if ((visited.length && visited[visited.length - 1].isFinish) || box.isWall) {
     return;
   }
@@ -33,7 +33,7 @@ export const dfsHelper = function (grid, box, distance, seen, visited) {
   }
 };
 
-export const depthFirstSearch = function (grid, startBox) {
+const depthFirstSearch = function (grid, startBox) {
   const seen = Array.from(Array(grid.length), () =>
     Array(grid[0].length).fill(false)
   );
@@ -44,7 +44,7 @@ export const depthFirstSearch = function (grid, startBox) {
   return visitedBoxesInOrder;
 };
 
-export const animateVisitedBoxes = function (visitedBoxesInOrder) {
+const animateVisitedBoxes = function (visitedBoxesInOrder) {
   const promises = [];
   for (let index = 0; index < visitedBoxesInOrder.length; index++) {
     const boxObject = visitedBoxesInOrder[index];
@@ -68,12 +68,14 @@ export const animateVisitedBoxes = function (visitedBoxesInOrder) {
   return Promise.all(promises);
 };
 
-const animatePath = function (lastbox) {
+const animatePath = function (lastBox) {
   const promises = [];
 
-  let prevBox = lastbox.previousBox;
-  let index = 0;
-  while (prevBox != null) {
+  for (
+    let prevBox = lastBox, index = 0;
+    prevBox !== null;
+    prevBox = prevBox.previousBox, index++
+  ) {
     const box = document.getElementById(`box-${prevBox.row}-${prevBox.col}`);
 
     setTimeout(() => {
@@ -88,12 +90,15 @@ const animatePath = function (lastbox) {
         }, index * 60);
       })
     );
-
-    prevBox = prevBox.previousBox;
-    index++;
   }
 
   return Promise.all(promises);
+};
+
+const animateFailure = function (startBox) {
+  const start = document.getElementById(`box-${startBox.row}-${startBox.col}`);
+  start.classList.remove(classes['box-visited']);
+  start.classList.add(classes['box-failure']);
 };
 
 export const renderDepthFirstSearch = async function (grid) {
@@ -103,5 +108,10 @@ export const renderDepthFirstSearch = async function (grid) {
   console.log(visitedBoxesInOrder);
 
   const lastbox = visitedBoxesInOrder[visitedBoxesInOrder.length - 1];
-  await animatePath(lastbox);
+
+  if (lastbox.isFinish) {
+    await animatePath(lastbox);
+  } else {
+    animateFailure(startBox);
+  }
 };
