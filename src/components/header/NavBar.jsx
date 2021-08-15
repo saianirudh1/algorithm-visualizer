@@ -19,6 +19,7 @@ function NavBar() {
   const algorithmState = useSelector((state) => state.algorithm);
   const arrayState = useSelector((state) => state.array.arr);
   const gridState = useSelector((state) => state.grid);
+  const navIsDisabled = useSelector((state) => state.input.nav);
 
   const sortButtonHandler = function () {
     dispatch(typeActions.setType('sort'));
@@ -37,23 +38,24 @@ function NavBar() {
   const visualizationHandler = async function () {
     const algoFunction = algoMap.get(algorithmState.id);
     dispatch(inputActions.setVisualize(true));
-    dispatch(inputActions.setGenerate(true));
-    dispatch(inputActions.setControl(true));
+    dispatch(inputActions.setNav(true));
 
     if (type === 'sort') {
+      dispatch(inputActions.setGenerate(true));
       const arr = arrayState.slice();
       const sorted = await algoFunction(arr);
-      dispatch(inputActions.setVisualize(false));
       dispatch(inputActions.setGenerate(false));
       if (algorithmState.id === 's1' || algorithmState.id === 's2') {
         dispatch(arrayActions.setArray(sorted));
       }
     } else {
+      dispatch(inputActions.setControl(true));
       const grid = getCopy(gridState.grid.slice());
       await algoFunction(grid);
-      dispatch(inputActions.setVisualize(false));
       dispatch(inputActions.setControl(false));
     }
+    dispatch(inputActions.setVisualize(false));
+    dispatch(inputActions.setNav(false));
   };
 
   return (
@@ -62,12 +64,14 @@ function NavBar() {
         <Button
           className={type === 'path' ? classes['btn--selected'] : ''}
           onClick={pathButtonHandler}
+          isDisabled={navIsDisabled}
         >
           Path Algorithms
         </Button>
         <Button
           className={type === 'sort' ? classes['btn--selected'] : ''}
           onClick={sortButtonHandler}
+          isDisabled={navIsDisabled}
         >
           Sorting Algorithms
         </Button>
