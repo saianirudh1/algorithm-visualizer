@@ -2,7 +2,7 @@
 
 Welcome to Algorithm Visualizer web app! This is a project which I have built for visualizing all the famous algorithms out there to see and understand deeply how they actually work.
 
-Try out the app here :
+Try out the app here :https://saianirudh1.github.io/algorithm-visualizer/
 
 ## Meet the algorithms!
 
