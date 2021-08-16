@@ -19,7 +19,7 @@
 
 .btn--selected {
   background-color: var(--hover-color);
-  opacity: 100%;
+  opacity: 1;
 }
 
 @media screen and (max-width: 1400px) {
