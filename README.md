@@ -6,7 +6,7 @@ Try out the app here: https://saianirudh1.github.io/algorithm-visualizer/
 
 ## Meet the algorithms!
 
-- ### Path Algorithms
+- ### Path Finding Algorithms
 
   - A\* Search
   - Breadth First Search
