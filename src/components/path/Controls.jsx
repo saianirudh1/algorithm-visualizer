@@ -9,6 +9,7 @@ import classes from './Controls.module.css';
 import { getInitialGrid, removeAnimationClasses } from '../../utils/pathUtils';
 
 import { gridActions } from '../../store/grid';
+import { generateRandomMaze } from '../../algorithms/randomMaze';
 
 function Controls() {
   const dispatch = useDispatch();
@@ -23,6 +24,12 @@ function Controls() {
     dispatch(gridActions.setGrid(getInitialGrid()));
     dispatch(gridActions.setType(''));
     removeAnimationClasses();
+  };
+
+  const handleRandomMaze = function () {
+    dispatch(gridActions.setType(''));
+    const newArray = generateRandomMaze();
+    dispatch(gridActions.setGrid(newArray));
   };
 
   return (
@@ -60,6 +67,13 @@ function Controls() {
         isDisabled={control}
       >
         Clear Board
+      </Button>
+      <Button
+        className={classes['control-btn']}
+        onClick={handleRandomMaze}
+        isDisabled={control}
+      >
+        Random Maze
       </Button>
     </div>
   );

@@ -80,13 +80,13 @@ const animateVisitedBoxes = function (visitedBoxesInOrder) {
 
     setTimeout(() => {
       box.classList.add(classes['box-visited']);
-    }, index * 30);
+    }, index * 50);
 
     promises.push(
       new Promise((resolve) => {
         setTimeout(() => {
           resolve();
-        }, index * 30);
+        }, index * 50);
       })
     );
   }
@@ -115,13 +115,13 @@ const animatePath = function (lastBox) {
     setTimeout(() => {
       box.classList.remove(classes['box-visited']);
       box.classList.add(classes['box-shortest-path']);
-    }, index * 60);
+    }, index * 50);
 
     promises.push(
       new Promise((resolve) => {
         setTimeout(() => {
           resolve();
-        }, index * 60);
+        }, index * 50);
       })
     );
   }

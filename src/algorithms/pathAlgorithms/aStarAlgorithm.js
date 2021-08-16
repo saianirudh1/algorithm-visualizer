@@ -153,13 +153,13 @@ const animateVisitedBoxes = function (visited) {
 
     setTimeout(() => {
       box.classList.add(classes['box-visited']);
-    }, index * 20);
+    }, index * 30);
 
     promises.push(
       new Promise((resolve) => {
         setTimeout(() => {
           resolve();
-        }, index * 20);
+        }, index * 30);
       })
     );
   }
@@ -188,13 +188,13 @@ const animateShortestPath = function (lastBox) {
     setTimeout(() => {
       box.classList.remove(classes['box-visited']);
       box.classList.add(classes['box-shortest-path']);
-    }, index * 25);
+    }, index * 50);
 
     promises.push(
       new Promise((resolve) => {
         setTimeout(() => {
           resolve();
-        }, index * 25);
+        }, index * 50);
       })
     );
   }
@@ -231,7 +231,7 @@ export const renderAStarSearch = async function (grid) {
   await animateVisitedBoxes(visitedBoxes);
 
   const lastbox = visitedBoxes[visitedBoxes.length - 1];
-  if (lastbox) {
+  if (lastbox.isFinish) {
     await animateShortestPath(lastbox);
   } else {
     animateFailure(startBox);

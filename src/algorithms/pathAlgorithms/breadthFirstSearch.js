@@ -67,13 +67,13 @@ const animateBreadthFirstSearch = async function (visitedbBoxesInOrder) {
     const box = document.getElementById(`box-${item.row}-${item.col}`);
     setTimeout(() => {
       box.classList.add(classes['box-visited']);
-    }, index * 20);
+    }, index * 25);
 
     promises.push(
       new Promise((resolve) => {
         setTimeout(() => {
           resolve();
-        }, index * 20);
+        }, index * 25);
       })
     );
   }
@@ -103,13 +103,13 @@ const animateShortestPath = async function (lastBox) {
     setTimeout(() => {
       box.classList.remove(classes['box-visited']);
       box.classList.add(classes['box-shortest-path']);
-    }, index * 25);
+    }, index * 40);
 
     promises.push(
       new Promise((resolve) => {
         setTimeout(() => {
           resolve();
-        }, index * 25);
+        }, index * 40);
       })
     );
   }
