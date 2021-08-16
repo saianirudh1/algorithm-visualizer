@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/algorithm-visualizer/static/css/main.e521f17f.chunk.css",
+    "main.css": "/algorithm-visualizer/static/css/main.4e1e9ea6.chunk.css",
     "main.js": "/algorithm-visualizer/static/js/main.63fea34c.chunk.js",
     "main.js.map": "/algorithm-visualizer/static/js/main.63fea34c.chunk.js.map",
     "runtime-main.js": "/algorithm-visualizer/static/js/runtime-main.878e2d53.js",
@@ -8,7 +8,7 @@
     "static/js/2.b36ba5a9.chunk.js": "/algorithm-visualizer/static/js/2.b36ba5a9.chunk.js",
     "static/js/2.b36ba5a9.chunk.js.map": "/algorithm-visualizer/static/js/2.b36ba5a9.chunk.js.map",
     "index.html": "/algorithm-visualizer/index.html",
-    "static/css/main.e521f17f.chunk.css.map": "/algorithm-visualizer/static/css/main.e521f17f.chunk.css.map",
+    "static/css/main.4e1e9ea6.chunk.css.map": "/algorithm-visualizer/static/css/main.4e1e9ea6.chunk.css.map",
     "static/js/2.b36ba5a9.chunk.js.LICENSE.txt": "/algorithm-visualizer/static/js/2.b36ba5a9.chunk.js.LICENSE.txt",
     "static/media/logo.583e98ad.png": "/algorithm-visualizer/static/media/logo.583e98ad.png",
     "static/media/start.fdc7ebbe.svg": "/algorithm-visualizer/static/media/start.fdc7ebbe.svg",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.878e2d53.js",
     "static/js/2.b36ba5a9.chunk.js",
-    "static/css/main.e521f17f.chunk.css",
+    "static/css/main.4e1e9ea6.chunk.css",
     "static/js/main.63fea34c.chunk.js"
   ]
 }
