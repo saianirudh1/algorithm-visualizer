@@ -6,6 +6,12 @@ Try out the app here: https://saianirudh1.github.io/algorithm-visualizer/
 
 ## Meet the algorithms!
 
+- ### Path Algorithms
+
+  - A\* Search
+  - Breadth First Search
+  - Depth First Search
+
 - ### Sorting Algorithms:
 
   - Quick Sort
@@ -13,11 +19,6 @@ Try out the app here: https://saianirudh1.github.io/algorithm-visualizer/
   - Insertion Sort
   - Selection Sort
   - Bubble Sort
-
-- ### Path Algorithms
-  - A\* Search
-  - Breadth First Search
-  - Depth First Search
 
 ## Built Using
 
